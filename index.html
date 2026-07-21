@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Pass';
+            src: url('./Password-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .pass {
+            font-family: monospace;
+            font-size: 1.25rem;
+            letter-spacing: 0.15em;
+        }
+
+        .pass.visible {
+            font-family: 'Pass', system-ui, -apple-system, sans-serif;
+            letter-spacing: normal;
+        }
+    </style>
+</head>
+<body>
+    <label for="pass-input">Pass</label>
+    <input id="pass-input" type="text" class="pass">
+    <button type="button">show pass</button>
+    <script>
+        const input = document.querySelector('.pass');
+        const button = document.querySelector('button');
+        let visible = false;
+
+        button.addEventListener('click', () => {
+            visible = !visible;
+
+            if (visible) {
+                input.classList.add('visible');
+                button.textContent = 'hide pass';
+            } else {
+                input.classList.remove('visible');
+                button.textContent = 'show pass';
+            }
+        });
+    </script>
+</body>
+</html>
